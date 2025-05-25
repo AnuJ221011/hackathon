@@ -8,13 +8,12 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+app.use(express.json());
 app.use(cors({
-  origin: ['https://ecoglam-xi.vercel.app', 'https://ecoglam.vercel.app'], // Vercel frontend URL
+  origin: 'https://ecoglam-xi.vercel.app', // your Vercel frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
 }));
-app.options('*', cors());
-app.use(express.json());
 
 
 // Create PostgreSQL connection pool
